@@ -1,0 +1,1 @@
+project strictly focused on learning testing and getting hand-on experienced on C++ OOP and semantics
