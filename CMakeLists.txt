@@ -7,7 +7,7 @@ add_library(add src/add.cpp)
 add_executable(tcp_simulation main.cpp)
 target_link_libraries(tcp_simulation PRIVATE add)
 
-add_executable(test1 tests/test.cpp)
+add_executable(test1 tests/test1.cpp)
 target_link_libraries(test1 PRIVATE add)
 enable_testing()
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
