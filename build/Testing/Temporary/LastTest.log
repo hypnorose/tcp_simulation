@@ -1,0 +1,18 @@
+Start testing: May 12 10:02 ?rodkowoeuropejski czas letni
+----------------------------------------------------------
+1/1 Testing: test
+1/1 Test: test
+Command: "C:/Users/atticus/Documents/tcp_simulation/build/test1.exe"
+Directory: C:/Users/atticus/Documents/tcp_simulation/build
+"test" start time: May 12 10:02 ?rodkowoeuropejski czas letni
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"test" end time: May 12 10:02 ?rodkowoeuropejski czas letni
+"test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 12 10:02 ?rodkowoeuropejski czas letni
