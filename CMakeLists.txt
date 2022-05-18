@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 project(tcp_simulation VERSION 0.1.0)
+file(GLOB APP_SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
 
-#add_library(add src/add.cpp)
+add_library(app ${APP_SOURCES})
 set(CMAKE_CXX_STANDARD 11)
 
 include(FetchContent)
@@ -11,14 +12,14 @@ FetchContent_Declare(
 )
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
-
-add_executable(tcp_simulation main.cpp)
 #target_link_libraries(tcp_simulation PRIVATE add)
 
 ## TESTS ##
  
 enable_testing()
 add_executable(test1 tests/test1.cpp)
+target_link_libraries(test1 app)
+
 target_link_libraries(
   test1
   gtest_main
@@ -27,7 +28,6 @@ target_link_libraries(
 include(GoogleTest)
 gtest_discover_tests(test1)
 
-#target_link_libraries(test1 PRIVATE add)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
