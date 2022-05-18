@@ -18,7 +18,9 @@ FetchContent_MakeAvailable(googletest)
  
 enable_testing()
 add_executable(test1 tests/test1.cpp)
+add_executable(main main.cpp)
 target_link_libraries(test1 app)
+target_link_libraries(main app)
 
 target_link_libraries(
   test1
