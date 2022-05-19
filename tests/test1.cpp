@@ -6,7 +6,7 @@
 #undef __STRICT_ANSI__
 #endif
 
-TEST(basicStructure,dstCheck){
+TEST(basic,dstCheck){
     Core core(6,1000,100);
     EXPECT_EQ(core.nodes[0].dst_id,3);
     EXPECT_EQ(core.nodes[3].dst_id,0);
@@ -15,11 +15,42 @@ TEST(basicStructure,dstCheck){
     EXPECT_EQ(core.nodes[2].dst_id,5);
 }
 
-TEST(basicStructure,sendCheck){
+TEST(basic,send){
     Core core(6,1000,100);
-    vector<Packet> rcvPackets = core.nodes[0].snd(0);
-    Packet rcvdAck = core.nodes[1].rcv(rcvPackets[0],1);
+    Packet rcvdAck;
+    vector<Packet> rcvPackets; 
+    rcvPackets = core.nodes[0].snd(0);
+    rcvdAck = core.nodes[1].rcv(rcvPackets[0],1);
     core.nodes[0].rcv(rcvdAck,1);
     EXPECT_EQ(core.nodes[0].cwnd,2);
+    
+}
+TEST(basic,backoff){
+    Core core(6,1000,100);
+    Packet rcvdAck;
+    vector<Packet> rcvPackets; 
+    rcvPackets = core.nodes[0].snd(0);
+    rcvdAck = core.nodes[1].rcv(rcvPackets[0],1);
     core.nodes[0].rcv(rcvdAck,1);
+    core.nodes[0].rcv(rcvdAck,1);
+    core.nodes[0].rcv(rcvdAck,1);
+    core.nodes[0].rcv(rcvdAck,1);
+    core.nodes[0].rcv(rcvdAck,1); 
+    core.nodes[0].rcv(rcvdAck,1); 
+    core.nodes[0].rcv(rcvdAck,1); 
+    rcvPackets = core.nodes[0].snd(2);
+    rcvdAck = core.nodes[1].rcv(rcvPackets[0],2);
+    core.nodes[0].snd(6);
+    EXPECT_EQ(core.nodes[0].cwnd,5);
+}
+TEST(basic,duplicate){
+    Core core(6,1000,100);
+    Packet rcvdAck;
+    vector<Packet> rcvPackets; 
+    rcvPackets = core.nodes[0].snd(0);
+    rcvdAck = core.nodes[1].rcv(rcvPackets[0],1);
+    core.nodes[0].rcv(rcvdAck,1);
+    core.nodes[0].rcv(rcvdAck,1);
+    core.nodes[0].rcv(rcvdAck,1);
+    EXPECT_EQ(core.nodes[0].cwnd,4);
 }

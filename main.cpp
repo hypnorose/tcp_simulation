@@ -2,12 +2,10 @@
 #include <iostream>
 int main(){
     char z;
-    Core core(4,1000,100);
-    core.printInfo();
-    cin >> z;
-    for(int i = 0 ; i < 100; i ++ ){
+    Core core(10,1000,500);
+    core.nodes[0].beta = 0.99;
+    for(int i = 0 ; i < 1000; i ++ ){
         core.step();
-        core.printInfo();
-        getc(stdin);
     }
+    core.printInfo();
 }
