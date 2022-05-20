@@ -4,3 +4,7 @@ build/
 .vscode/
 _deps/
 *.cmake
+*.a
+CMakeCache.txt
+lib/
+CMakeFiles/
