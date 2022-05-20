@@ -2,6 +2,8 @@
 #include "../h/core.h"
 #include "../h/packet.h"
 #include <vector>
+#include <iostream>
+using namespace std;
 #ifdef __STRICT_ANSI__
 #undef __STRICT_ANSI__
 #endif
@@ -41,7 +43,7 @@ TEST(basic,backoff){
     rcvPackets = core.nodes[0].snd(2);
     rcvdAck = core.nodes[1].rcv(rcvPackets[0],2);
     core.nodes[0].snd(6);
-    EXPECT_EQ(core.nodes[0].cwnd,5);
+    EXPECT_EQ(core.nodes[0].cwnd,1);
 }
 TEST(basic,duplicate){
     Core core(6,1000,100);
@@ -52,5 +54,6 @@ TEST(basic,duplicate){
     core.nodes[0].rcv(rcvdAck,1);
     core.nodes[0].rcv(rcvdAck,1);
     core.nodes[0].rcv(rcvdAck,1);
-    EXPECT_EQ(core.nodes[0].cwnd,4);
+    EXPECT_EQ(core.nodes[0].cwnd,2);
+    // it should be 2 because we erase ACK from ackAwaiting map
 }

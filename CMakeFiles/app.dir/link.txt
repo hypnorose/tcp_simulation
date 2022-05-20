@@ -1,0 +1,2 @@
+/home/yossarian/anaconda3/bin/x86_64-conda-linux-gnu-ar qc libapp.a CMakeFiles/app.dir/src/core.cpp.o CMakeFiles/app.dir/src/node.cpp.o CMakeFiles/app.dir/src/packet.cpp.o
+/home/yossarian/anaconda3/bin/x86_64-conda-linux-gnu-ranlib libapp.a

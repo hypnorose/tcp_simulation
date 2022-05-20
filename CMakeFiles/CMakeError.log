@@ -1,0 +1,61 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/yossarian/PROJECTS/tcp_simulation/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_257b2/fast && /usr/bin/make  -f CMakeFiles/cmTC_257b2.dir/build.make CMakeFiles/cmTC_257b2.dir/build
+make[1]: Entering directory '/home/yossarian/PROJECTS/tcp_simulation/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_257b2.dir/src.c.o
+/home/yossarian/anaconda3/bin/x86_64-conda-linux-gnu-cc -DCMAKE_HAVE_LIBC_PTHREAD  -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/yossarian/anaconda3/include  -o CMakeFiles/cmTC_257b2.dir/src.c.o -c /home/yossarian/PROJECTS/tcp_simulation/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_257b2
+/home/yossarian/anaconda3/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_257b2.dir/link.txt --verbose=1
+/home/yossarian/anaconda3/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/yossarian/anaconda3/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,-rpath,/home/yossarian/anaconda3/lib -Wl,-rpath-link,/home/yossarian/anaconda3/lib -L/home/yossarian/anaconda3/lib  -rdynamic CMakeFiles/cmTC_257b2.dir/src.c.o -o cmTC_257b2 
+/home/yossarian/anaconda3/bin/../lib/gcc/x86_64-conda-linux-gnu/9.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: CMakeFiles/cmTC_257b2.dir/src.c.o: in function `main':
+src.c:(.text.startup.main+0x24): undefined reference to `pthread_create'
+/home/yossarian/anaconda3/bin/../lib/gcc/x86_64-conda-linux-gnu/9.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: src.c:(.text.startup.main+0x2e): undefined reference to `pthread_detach'
+/home/yossarian/anaconda3/bin/../lib/gcc/x86_64-conda-linux-gnu/9.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: src.c:(.text.startup.main+0x38): undefined reference to `pthread_cancel'
+/home/yossarian/anaconda3/bin/../lib/gcc/x86_64-conda-linux-gnu/9.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: src.c:(.text.startup.main+0x44): undefined reference to `pthread_join'
+/home/yossarian/anaconda3/bin/../lib/gcc/x86_64-conda-linux-gnu/9.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: src.c:(.text.startup.main+0x50): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_257b2.dir/build.make:99: cmTC_257b2] Error 1
+make[1]: Leaving directory '/home/yossarian/PROJECTS/tcp_simulation/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_257b2/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/yossarian/PROJECTS/tcp_simulation/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_93206/fast && /usr/bin/make  -f CMakeFiles/cmTC_93206.dir/build.make CMakeFiles/cmTC_93206.dir/build
+make[1]: Entering directory '/home/yossarian/PROJECTS/tcp_simulation/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_93206.dir/CheckFunctionExists.c.o
+/home/yossarian/anaconda3/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/yossarian/anaconda3/include -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_93206.dir/CheckFunctionExists.c.o -c /home/yossarian/anaconda3/lib/python3.9/site-packages/cmake/data/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_93206
+/home/yossarian/anaconda3/lib/python3.9/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_93206.dir/link.txt --verbose=1
+/home/yossarian/anaconda3/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/yossarian/anaconda3/include -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,-rpath,/home/yossarian/anaconda3/lib -Wl,-rpath-link,/home/yossarian/anaconda3/lib -L/home/yossarian/anaconda3/lib  -rdynamic CMakeFiles/cmTC_93206.dir/CheckFunctionExists.c.o -o cmTC_93206  -lpthreads 
+/home/yossarian/anaconda3/bin/../lib/gcc/x86_64-conda-linux-gnu/9.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_93206.dir/build.make:99: cmTC_93206] Error 1
+make[1]: Leaving directory '/home/yossarian/PROJECTS/tcp_simulation/CMakeFiles/CMakeTmp'
+make: *** [Makefile:127: cmTC_93206/fast] Error 2
+
+
+
