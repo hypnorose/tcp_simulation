@@ -2,8 +2,8 @@
 #include <iostream>
 int main(){
     char z;
-    Core core(10,1000,500);
-    core.nodes[0].beta = 0.99;
+    Core core(40,1000,500);
+    core.setBeta(0.7);
     for(int i = 0 ; i < 1000; i ++ ){
         core.step();
     }
