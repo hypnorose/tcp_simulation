@@ -1,5 +1,0 @@
-if(EXISTS "/home/yossarian/PROJECTS/tcp_simulation/test1[1]_tests.cmake")
-  include("/home/yossarian/PROJECTS/tcp_simulation/test1[1]_tests.cmake")
-else()
-  add_test(test1_NOT_BUILT test1_NOT_BUILT)
-endif()

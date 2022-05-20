@@ -1,3 +1,0 @@
-/home/yossarian/PROJECTS/tcp_simulation/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/home/yossarian/PROJECTS/tcp_simulation/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/home/yossarian/PROJECTS/tcp_simulation/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir

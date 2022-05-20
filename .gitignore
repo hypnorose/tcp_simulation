@@ -1,6 +1,6 @@
 *.o
 *.exe
-build/
+build/*
 .vscode/
 _deps/
 *.cmake
@@ -8,3 +8,4 @@ _deps/
 CMakeCache.txt
 lib/
 CMakeFiles/
+_deps/*
