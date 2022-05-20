@@ -1,6 +1,6 @@
 *.o
 *.exe
 build/
-.vscode
+.vscode/
 _deps/
 *.cmake
