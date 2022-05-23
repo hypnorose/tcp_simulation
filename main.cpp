@@ -22,8 +22,8 @@ int main(){
     double beta;
     int nodesNumber,queueSize,speed,alpha,timeout;
     nodesNumber = 10;
-    queueSize = 1000;
-    speed = 50;
+    queueSize = 10000;
+    speed = 1000;
     alpha = 1;
     beta = 0.5;
     timeout = 3;
@@ -38,8 +38,14 @@ int main(){
     core.setAlpha(alpha);
     core.setBeta(beta);
     core.setTimeout(timeout);
-    for(int i = 0 ; i < 1000; i ++ ){
+    int print_ctr=0;
+    for(;;){
         core.step();
+        if(print_ctr++%20 == 0){
+            core.printInfo();
+            cout << "\x1b["<< core.nodes.size() + 2<<"A";
+
+        }
     }
     core.printInfo();
 }

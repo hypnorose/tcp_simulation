@@ -55,5 +55,5 @@ TEST(basic,duplicate){
     core.nodes[0].rcv(rcvdAck,1);
     core.nodes[0].rcv(rcvdAck,1);
     EXPECT_EQ(core.nodes[0].cwnd,2);
-    // it should be 2 because we erase ACK from ackAwaiting map
+    // it should be 2 because we erase ACK from ackAwaiting map at timeout
 }

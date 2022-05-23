@@ -1,7 +1,7 @@
-#pragma once
 #include "../h/core.h"
 #include <vector>
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 
 using namespace std;
@@ -55,10 +55,9 @@ void Core::step(){
 }
 void Core::printInfo(){
     double sum = 0;
-    cout << "packets on core: "<< packets.size() << endl;
     for(int i = 0; i < nodes.size();i++){
         cout.precision(2);
-        cout << nodes[i].id << " " << nodes[i].acksAwaiting.size() << "/"<<nodes[i].cwnd << " " << fixed << (double)nodes[i].ackCount / rtt_ctr << " sgmnts/rtt " << 100.0 - 100.0 * ((double)nodes[i].ackCount/nodes[i].sndCount) << "\% packet loss"<<  endl;
+        cout << nodes[i].id << " " << setw(3) << nodes[i].acksAwaiting.size() << "/"<< setw(4) <<nodes[i].cwnd << " " << fixed << setw(8) <<(double)nodes[i].ackCount / rtt_ctr << " sgmnts/rtt " << 100.0 - 100.0 * ((double)nodes[i].ackCount/nodes[i].sndCount) << "\% packet loss"<<  endl;
         sum += (double)nodes[i].ackCount / rtt_ctr;
     }
     cout << "sum: " << sum << " sgmnts/rtt" << endl;
